@@ -14,7 +14,7 @@ class Content extends Component {
         
         <div className="row">
           <div className="col-md-3">
-            <div className="border-gold font-weight-light text-uppercase my-4">
+            <div className="border-gold font-weight-light text-center text-uppercase my-4">
               ### Produtos Encontrados
             </div>
           </div>
