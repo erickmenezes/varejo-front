@@ -10,3 +10,8 @@
 .border-gold {
   border-bottom: 2px solid #DBB674;
 }
+
+.text-line-through {
+  text-decoration: line-through !important;
+}
+
