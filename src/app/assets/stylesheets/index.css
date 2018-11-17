@@ -19,3 +19,12 @@
   width: 10%;
 }
 
+.searchBox span {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.searchBox input {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

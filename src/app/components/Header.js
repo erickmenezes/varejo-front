@@ -9,7 +9,7 @@ class Header extends Component {
         <div className="col-md-3">
           <img src={logo} className="logo" alt="logo" />
         </div>
-        <div className="col-md-3 my-auto ml-auto">
+        <div className="col-md-3 my-auto ml-auto searchBox">
           <form method="post">
             <div className="form-group my-auto">
               <div className="input-group">
@@ -18,8 +18,7 @@ class Header extends Component {
                     <i className="text-muted fas fa-search"></i>
                   </span>
                 </div>
-                <input type="text" className="form-control" placeholder="Buscar"></input>
-                <button className="btn btn-primary" type="submit">Buscar</button>
+                <input type="text" className="form-control border-left-0" placeholder="Buscar"></input>
               </div>                  
             </div>
           </form> 

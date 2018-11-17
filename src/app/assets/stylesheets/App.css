@@ -13,10 +13,6 @@ code {
     monospace;
 }
 
-.vertical-line-left:before {
-  content: "\2759"
-};
-
-.vertical-line-right:after {
-  content: "\2759"
-};
+.form-control:focus {
+  box-shadow: none;
+}
