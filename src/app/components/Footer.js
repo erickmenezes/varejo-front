@@ -6,9 +6,9 @@ class Footer extends Component {
       <footer>
         <div className="row">
           <div className="col-md-3 mb-3">
-            <select className="form-control" name="show">
+            <select className="form-control" name="show" defaultValue="8">
               <option value="4">4 produtos por página</option>
-              <option value="8" selected>8 produtos por página</option>
+              <option value="8">8 produtos por página</option>
               <option value="16">16 produtos por página</option>
               <option value="24">24 produtos por página</option>
             </select>
