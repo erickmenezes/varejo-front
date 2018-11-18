@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ProductCard from './ProductCard';
+import Footer from './Footer';
 
 class Content extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Content extends Component {
     this.state = {
       search: null,
       count: 0,
+      pagination: {},
       products: [],
     };
   }
@@ -20,7 +22,13 @@ class Content extends Component {
         this.setState({
           search: null,
           count: json.count,
-          products: json.results 
+          pagination: {
+            currentPage: json.page,
+            totalPages: json.totalPages,
+            previous: json.previous,
+            next: json.next
+          },
+          products: json.results
         });
       })
       .catch((err) => {
@@ -60,6 +68,10 @@ class Content extends Component {
           </div>
         </div>
       ))}
+
+        <hr/>
+
+        <Footer pagination={this.state.pagination}/>
     </div>
     );
   }

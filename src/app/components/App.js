@@ -4,7 +4,6 @@ import '../assets/stylesheets/app.css';
 
 import Header from './Header';
 import Content from './Content';
-import Footer from './Footer';
 
 class App extends Component {
   render() {
@@ -14,10 +13,6 @@ class App extends Component {
           <Header />
 
           <Content />
-
-          <hr/>
-
-          <Footer />
         </div>          
       </div>
     );
