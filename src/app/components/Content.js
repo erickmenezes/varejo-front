@@ -29,7 +29,16 @@ class Content extends ReactQueryParams {
     let qs = querystring.stringify(query);
     qs = Object.keys(query).length > 0 ? '?' + qs : qs;
 
-    fetch('http://localhost:8080/products' + qs)
+    let apiHost = process.env.API_HOST || 'http://localhost';
+    let apiUrl = apiHost;
+
+    if (!process.env.API_HOST) {
+      let apiPort = process.env.API_PORT || '8080';
+
+      apiUrl = apiHost + ':' + apiPort;
+    }
+
+    fetch(apiUrl + '/products' + qs)
       .then(response =>  response.json())
       .then(json => {
         this.setState({
