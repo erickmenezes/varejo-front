@@ -3,6 +3,7 @@ import ReactQueryParams from 'react-query-params';
 
 import * as querystring from 'querystring';
 
+import Header from './Header';
 import ProductCard from './ProductCard';
 import Footer from './Footer';
 
@@ -20,6 +21,11 @@ class Content extends ReactQueryParams {
 
   componentWillMount() {
     let query = this.queryParams;
+    
+    Object.keys(query).map((key, index) => 
+      query[key] = decodeURIComponent(query[key])
+    );
+
     let qs = querystring.stringify(query);
     qs = Object.keys(query).length > 0 ? '?' + qs : qs;
 
@@ -27,7 +33,7 @@ class Content extends ReactQueryParams {
       .then(response =>  response.json())
       .then(json => {
         this.setState({
-          search: null,
+          search: query.search,
           count: json.count,
           pagination: {
             qs: qs.replace(/\?/, '').replace(/&*page=\d+&*/, ''),
@@ -42,6 +48,10 @@ class Content extends ReactQueryParams {
       .catch((err) => {
         console.log('An error occured');
       });
+  }
+
+  componentDidMount() {
+    document.title = this.queryParams.search || 'Lista de Produtos';
   }
 
   renderSearchedField() {
@@ -59,6 +69,8 @@ class Content extends ReactQueryParams {
   render() {
     return (
       <div className="content mb-3">
+        <Header search={this.state.search}/>
+
         {this.renderSearchedField()}
         
         <div className="row">
@@ -69,18 +81,18 @@ class Content extends ReactQueryParams {
           </div>
         </div>
 
-      {this.state.products.map((product, index) => (
-        <div className="row" key={index}>
-          <div className="col-md-12">
-            <ProductCard key={index} product={product}/>
+        {this.state.products.map((product, index) => (
+          <div className="row" key={index}>
+            <div className="col-md-12">
+              <ProductCard key={index} product={product}/>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
         <hr/>
 
         <Footer pagination={this.state.pagination}/>
-    </div>
+      </div>
     );
   }
 }
