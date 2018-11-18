@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../assets/stylesheets/app.css';
-
 import Content from './Content';
 
 class App extends Component {
