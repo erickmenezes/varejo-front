@@ -13,7 +13,8 @@ class Header extends ReactQueryParams {
   handleSubmit(event) {
     event.preventDefault();
     this.setQueryParams({
-      search: this.refs.inputSearch.value
+      search: this.refs.inputSearch.value,
+      page: undefined
     });
 
     window.location.reload();
@@ -36,7 +37,7 @@ class Header extends ReactQueryParams {
                     <i className="text-muted fas fa-search"></i>
                   </span>
                 </div>
-                <input type="text" className="form-control border-left-0" ref="inputSearch" placeholder="Buscar"
+                <input type="search" className="form-control border-left-0" ref="inputSearch" placeholder="Buscar"
                 defaultValue={this.props.search}></input>
               </div>                  
             </div>
