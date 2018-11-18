@@ -10,7 +10,7 @@ class Footer extends Component {
       let page = idx + currentPage;
 
       if (currentPage === page) {
-        return ( <input key={page} type="text" className="form-control d-inline go-to" defaultValue={page}></input> );
+        return ( <input key={page} type="tel" maxLength="2" className="form-control d-inline go-to" defaultValue={page}></input> );
       } else {
         if (page <= maxPagination) {
           return (<a key={page} href={"/?page=" + page} className="text-muted my-auto mx-3">{page}</a>);
