@@ -5,16 +5,15 @@ class Footer extends Component {
     let pagination = this.props.pagination;
     let maxPagination = pagination.totalPages;
 
-    console.log(pagination.currentPage);
-
     let elements = Array(5).fill().map((_, idx) => {
-      let page = idx + 1;
+      let currentPage = pagination.currentPage || 1;
+      let page = idx + currentPage;
 
-      if (pagination.currentPage === page) {
-        return ( <input key={page} type="text" className="form-control d-inline go-to" defaultValue="1"></input> );
+      if (currentPage === page) {
+        return ( <input key={page} type="text" className="form-control d-inline go-to" defaultValue={page}></input> );
       } else {
         if (page <= maxPagination) {
-          return (<a key={page} href={"/page=" + page} className="text-muted my-auto mx-3">{page}</a>);
+          return (<a key={page} href={"/?page=" + page} className="text-muted my-auto mx-3">{page}</a>);
         } else {
           return (<label key={page} className="text-muted my-auto mx-3">{page}</label>);
         }
