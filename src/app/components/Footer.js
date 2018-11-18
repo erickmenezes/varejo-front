@@ -10,11 +10,11 @@ class Footer extends ReactQueryParams {
   }
 
   handleChange(event) {
-    this.setQueryParams({
-      limit: event.target.value
-    });
+    let newQs = Object.assign({}, this.queryParams, {});
+    newQs.limit = event.target.value;
+    this.setQueryParams(newQs);
 
-    this.refs.formLimit.submit();
+    window.location.reload();
   }
 
   handleSubmit(event) {
@@ -22,6 +22,7 @@ class Footer extends ReactQueryParams {
     this.setQueryParams({
       page: this.refs.inputPage.value
     });
+
     window.location.reload();
   }
 
