@@ -7,7 +7,9 @@ class Header extends Component {
     return (
       <header className="row my-3">
         <div className="col-md-3">
-          <img src={logo} className="logo" alt="logo" />
+          <a href='/' >
+            <img src={logo} className="logo" alt="logo" />
+          </a>
         </div>
         <div className="col-md-3 my-auto ml-auto searchBox">
           <form method="post">
