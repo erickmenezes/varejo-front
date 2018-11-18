@@ -29,10 +29,10 @@ class Content extends ReactQueryParams {
     let qs = querystring.stringify(query);
     qs = Object.keys(query).length > 0 ? '?' + qs : qs;
 
-    let apiHost = process.env.API_HOST || 'http://localhost';
+    let apiHost = process.env.REACT_APP_API_HOST || 'http://localhost';
     let apiUrl = apiHost;
 
-    if (!process.env.API_HOST) {
+    if (!process.env.REACT_APP_API_HOST) {
       let apiPort = process.env.API_PORT || '8080';
 
       apiUrl = apiHost + ':' + apiPort;
