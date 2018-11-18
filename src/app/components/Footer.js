@@ -13,7 +13,7 @@ class Footer extends Component {
         return ( <input key={page} type="tel" maxLength="2" className="form-control d-inline go-to" defaultValue={page}></input> );
       } else {
         if (page <= maxPagination) {
-          return (<a key={page} href={"/?page=" + page} className="text-muted my-auto mx-3">{page}</a>);
+          return (<a key={page} href={"/?page=" + page + '&' + pagination.qs} className="text-muted my-auto mx-3">{page}</a>);
         } else {
           return (<label key={page} className="text-muted my-auto mx-3">{page}</label>);
         }
@@ -40,18 +40,18 @@ class Footer extends Component {
 
           <div className="col-md-4 my-auto ml-auto">
             <div className="pagination text-center">
-              <a href="/" className="text-muted my-auto">
+              <a href={"/?" + this.props.pagination.qs} className="text-muted my-auto">
                 <i className="far fa-window-minimize fa-rotate-270"></i>
                 <i className="fas fa-chevron-left"></i>
               </a>
-              <a href={this.props.pagination.previous || '/'} className="text-muted mx-3 my-auto">
+              <a href={this.props.pagination.previous || '/?' + this.props.pagination.qs} className="text-muted mx-3 my-auto">
                 <i className="fas fa-chevron-left"></i>
               </a>
               {this.definePagination()}
               <a href={this.props.pagination.next} className="text-muted my-auto mx-3 my-auto">
                 <i className="fas fa-chevron-right"></i>
               </a>
-              <a href={"/page=" + this.props.pagination.totalPages} className="text-muted my-auto">
+              <a href={"/page=" + this.props.pagination.totalPages + '&' + this.props.pagination.qs} className="text-muted my-auto">
                 <i className="fas fa-chevron-right"></i>
                 <i className="far fa-window-minimize fa-rotate-90"></i>
               </a>

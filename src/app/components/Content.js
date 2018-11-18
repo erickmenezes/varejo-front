@@ -21,7 +21,7 @@ class Content extends ReactQueryParams {
   componentWillMount() {
     let query = this.queryParams;
     let qs = querystring.stringify(query);
-    qs = Object.keys(query).length > 1 ? '?' + qs : qs;
+    qs = Object.keys(query).length > 0 ? '?' + qs : qs;
 
     fetch('http://localhost:8080/products' + qs)
       .then(response =>  response.json())
@@ -30,6 +30,7 @@ class Content extends ReactQueryParams {
           search: null,
           count: json.count,
           pagination: {
+            qs: qs.replace(/\?/, '').replace(/&*page=\d+&*/, ''),
             currentPage: json.page,
             totalPages: json.totalPages,
             previous: json.previous,
