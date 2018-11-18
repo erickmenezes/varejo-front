@@ -14,7 +14,7 @@ class Content extends ReactQueryParams {
       search: null,
       count: 0,
       pagination: {},
-      products: [],
+      products: []
     };
   }
 
