@@ -12,16 +12,16 @@ class ProductCard extends Component {
       <div className="card">
         <div className="card-body">
           <div className="row">
-            <div className="col-md-5 my-auto">
+            <div className="col-md-5 my-auto text-center pb-3">
             {product.images.map((image, index) => (
               <img className="img-product img-fluid" key={index} src={image.path} alt='Imagem do produto'></img>
             ))}
             </div>
-            <div className="col-md-4 my-auto">
+            <div className="col-md-4 my-auto py-3">
               <h6 className="m-0">{product.name}</h6>
               <small className="text-muted">{product.type} &#8226; {product.size}</small>
             </div>
-            <div className="col-md-3 my-auto">
+            <div className="col-md-3 my-auto text-right">
               <span className="text-muted text-line-through">{this.formatPrice(product.oldPrice)}</span> 
               <span className="text-muted"> por </span>
               {this.formatPrice(product.price)}
