@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactQueryParams from 'react-query-params';
+
+import * as querystring from 'querystring';
 
 import ProductCard from './ProductCard';
 import Footer from './Footer';
 
-class Content extends Component {
+class Content extends ReactQueryParams {
   constructor(props) {
     super(props);
 
@@ -16,7 +19,11 @@ class Content extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:8080/products')
+    let query = this.queryParams;
+    let qs = querystring.stringify(query);
+    qs = Object.keys(query).length > 1 ? '?' + qs : qs;
+
+    fetch('http://localhost:8080/products' + qs)
       .then(response =>  response.json())
       .then(json => {
         this.setState({
