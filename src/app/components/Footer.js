@@ -1,6 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactQueryParams from 'react-query-params';
 
-class Footer extends Component {
+class Footer extends ReactQueryParams {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setQueryParams({
+      limit: event.target.value
+    });
+
+    this.refs.formLimit.submit();
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setQueryParams({
+      page: this.refs.inputPage.value
+    });
+    window.location.reload();
+  }
+
   definePagination() {
     let pagination = this.props.pagination;
     let maxPagination = pagination.totalPages;
@@ -10,10 +34,24 @@ class Footer extends Component {
       let page = idx + currentPage;
 
       if (currentPage === page) {
-        return ( <input key={page} type="tel" maxLength="2" className="form-control d-inline go-to" defaultValue={page}></input> );
+        return (
+          <form key={"form" + page} ref="formPage" className="d-contents" onSubmit={this.handleSubmit}>
+            <input 
+              key={page} 
+              type="tel" 
+              ref="inputPage"
+              maxLength="2" 
+              className="form-control d-inline go-to" 
+              defaultValue={page}>
+            </input>
+          </form>
+        );
       } else {
         if (page <= maxPagination) {
-          return (<a key={page} href={"/?page=" + page + '&' + pagination.qs} className="text-muted my-auto mx-3">{page}</a>);
+          let url = "/?page=" + page;
+          let href = pagination.qs.length === 0 ? url : url + '&' + pagination.qs
+
+          return (<a key={page} href={href} className="text-muted my-auto mx-3">{page}</a>);
         } else {
           return (<label key={page} className="text-muted my-auto mx-3">{page}</label>);
         }
@@ -30,12 +68,14 @@ class Footer extends Component {
       <footer>
         <div className="row">
           <div className="col-md-3 mb-3">
-            <select className="form-control" name="limit" defaultValue="8">
-              <option value="4">4 produtos por página</option>
-              <option value="8">8 produtos por página</option>
-              <option value="16">16 produtos por página</option>
-              <option value="24">24 produtos por página</option>
-            </select>
+            <form ref="formLimit">
+              <select className="form-control" name="limit" defaultValue={this.queryParams.limit || 8} onChange={this.handleChange}>
+                <option value="4">4 produtos por página</option>
+                <option value="8">8 produtos por página</option>
+                <option value="16">16 produtos por página</option>
+                <option value="24">24 produtos por página</option>
+              </select>
+            </form>
           </div>
 
           <div className="col-md-4 my-auto ml-auto">
