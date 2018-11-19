@@ -3,7 +3,7 @@ O projeto deve conter um arquivo de README, com orientações  de instalação e
 front = https://mysterious-dusk-62432.herokuapp.com
 
 
-# Varejo API
+# Varejo Front
 
 Esse é um projeto [Node.js] básico de front utilizando [React.js]. Consiste em uma representação visual de uma busca de produtos feitas através de um endpoint REST.
 
