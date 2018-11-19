@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto deve conter um arquivo de README, com orientações  de instalação e execução local e link teste para apreciação do projeto final funcional, em um ambiente como Heroku
 
-## Available Scripts
+front = https://mysterious-dusk-62432.herokuapp.com
 
-In the project directory, you can run:
 
-### `npm start`
+# Varejo API
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Esse é um projeto [Node.js] básico de front utilizando [React.js]. Consiste em uma representação visual de uma busca de produtos feitas através de um endpoint REST.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Esse projeto também utiliza o projeto-irmão [varejo-api] para recuperar as informações de produto.
 
-### `npm test`
+Por se tratar de um front-end que consome uma API REST, o projeto-irmão deverá ser clonado juntamente com este, caso queira ver todas as funcionalidades com sucesso.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A aplicação final pode ser testada em: https://mysterious-dusk-62432.herokuapp.com
 
-### `npm run build`
+## Rodando localmente
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para rodar localmente garanta que tenha instalado o [Node.js].
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Após basta executar os seguintes comandos abaixo no seu terminal.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ```sh
+  $ git clone https://github.com/erickmenezes/varejo-front.git
+  $ cd varejo-front
+  ```
 
-### `npm run eject`
+Para instalar as depêdencias do projeto, basta executar:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  ```sh
+  $ npm install
+  ```
+Com tudo pronto, basta executar:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```sh
+  $ npm start
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Com isso, a aplicação estará rodando em http://localhost:3000. Relembrando que para visualizar as informações é necessário clone e executar o projeto [varejo-api]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+   [Node.js]: <http://nodejs.org>
+   [React.js]: <https://reactjs.org/>
+   [varejo-api]: <https://github.com/erickmenezes/varejo-api>
